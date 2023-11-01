@@ -1,6 +1,9 @@
 package dmacc.beans;
 
 
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
+
 import jakarta.persistence.Embeddable;
 
 /**
@@ -25,6 +28,7 @@ public class Manufacturer {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	/**
 	 * @param manName
 	 * @param street
@@ -38,6 +42,8 @@ public class Manufacturer {
 		this.city = city;
 		this.state = state;
 	}
+	
+
 	
 	/**
 	 * @return the manName
