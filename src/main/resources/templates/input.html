@@ -30,7 +30,11 @@ crossorigin="anonymous">
 </style>
 </head>
 <body>
+	<header th:replace="fragments/header :: header"></header>
+	
 	<div class="container">
+		
+		
 	<h1>Add or Update a Product</h1>
 		<div class="row">
 			<!--th:object="${newProduct} "matches the attrubute that was passed in-->

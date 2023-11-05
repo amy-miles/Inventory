@@ -18,16 +18,13 @@ public class BeanConfiguration {
 	@Bean
 	public Product product() {
 		Product bean = new Product();
-		bean.setName("BabyLips");
-		bean.setDescription("Maybelline lip gloss");
-		bean.setCost(1.20);
-		bean.setStock(12);
+		
 		return bean;
 	}
 	
 	@Bean
 	public Manufacturer manufacturer() {
-		Manufacturer bean = new Manufacturer("Maybelline", "10 Hudson Yards", "New York", "NY" );
+		Manufacturer bean = new Manufacturer();
 		return bean;
 	}
 	
