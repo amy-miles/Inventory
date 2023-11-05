@@ -7,10 +7,11 @@
 integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
 crossorigin="anonymous">
 <script type = "text/javascript">
-   <!--
-      // Form validation code will come here.
+   <!--      // Form validation code will come here.//-->
       function validate() {
-      
+      	 var m = document.getElementById("manSelect");
+      	 var s = document.getElementById("stateSelect");
+      	 
          if( document.myForm.name.value == "" ) {
             alert( "Please enter a name!" );
             document.myForm.name.focus() ;
@@ -20,10 +21,45 @@ crossorigin="anonymous">
             alert( "Please provide a description!" );
             document.myForm.description.focus() ;
             return false;
-         }      
-         return( true );
+         }   
+         if( document.myForm.cost.value == 0.0 ) {
+            alert( "Please provide a cost!" );
+            document.myForm.cost.focus() ;
+            return false;
+         }  
+         if( document.myForm.stock.value == 0 ) {
+            alert( "Please provide a beginning inventory!" );
+            document.myForm.stock.focus() ;
+            return false;
+         }
+        
+         if( m.options[m.selectedIndex].value == "" ) {			
+            alert( "Please select a manufacturer!" );
+            m.focus();
+            return false;
+         }
+         if( document.myForm.street.value == "" ) {
+            alert( "Please enter a street address!" );
+            document.myForm.street.focus() ;
+            return false;
+         }
+         if( document.myForm.city.value == "" ) {
+            alert( "Please enter the city!" );
+            document.myForm.city.focus() ;
+            return false;
+         }
+         
+         if( s.options[s.selectedIndex].value == "" ) {			
+            alert( "Please select a state!" );
+            s.focus();
+            return false;
+         }
+         else{
+			 return( true );
+		 }
+         
       }
-   //-->
+   
 </script>
 <style type="text/css">
     label {
@@ -75,10 +111,10 @@ crossorigin="anonymous">
 				
 				<div class="form-group" width="auto">
 					<label>Manufacturer:</label>
-					<select  class="form-control" th:field="*{manufacturer.manName}">
+					<select  class="form-control" id="manSelect"  th:field="*{manufacturer.manName}">
 						<option value="">Choose</option>
-								<option value="Maybelline">Maybelline</option>
-								<option value="Revlon">Revlon</option>						
+						<option value="Maybelline">Maybelline</option>
+						<option value="Revlon">Revlon</option>						
 					</select>
 					
 				</div>
@@ -89,7 +125,7 @@ crossorigin="anonymous">
 					<input  th:field="*{manufacturer.city}" size="20"><br/>
 					
 					<label>State:</label>
-					<select class="form-control"  th:field="*{manufacturer.state}" >
+					<select class="form-control" id="stateSelect" th:field="*{manufacturer.state}" >
 								<option value="">Choose</option>
 								<option value="AK">Alaska</option>
 								<option value="AL">Alabama</option>
