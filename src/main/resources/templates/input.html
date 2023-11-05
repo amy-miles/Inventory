@@ -8,58 +8,26 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
 crossorigin="anonymous">
 <script type = "text/javascript">
    <!--      // Form validation code will come here.//-->
-      function validate() {
-      	 var m = document.getElementById("manSelect");
-      	 var s = document.getElementById("stateSelect");
-      	 
-         if( document.myForm.name.value == "" ) {
-            alert( "Please enter a name!" );
-            document.myForm.name.focus() ;
-            return false;
-         }
-         if( document.myForm.description.value == "" ) {
-            alert( "Please provide a description!" );
-            document.myForm.description.focus() ;
-            return false;
-         }   
-         if( document.myForm.cost.value == 0.0 ) {
-            alert( "Please provide a cost!" );
-            document.myForm.cost.focus() ;
-            return false;
-         }  
-         if( document.myForm.stock.value == 0 ) {
-            alert( "Please provide a beginning inventory!" );
-            document.myForm.stock.focus() ;
-            return false;
-         }
-        
-         if( m.options[m.selectedIndex].value == "" ) {			
-            alert( "Please select a manufacturer!" );
-            m.focus();
-            return false;
-         }
-         if( document.myForm.street.value == "" ) {
-            alert( "Please enter a street address!" );
-            document.myForm.street.focus() ;
-            return false;
-         }
-         if( document.myForm.city.value == "" ) {
-            alert( "Please enter the city!" );
-            document.myForm.city.focus() ;
-            return false;
-         }
-         
-         if( s.options[s.selectedIndex].value == "" ) {			
-            alert( "Please select a state!" );
-            s.focus();
-            return false;
-         }
-         else{
-			 return( true );
-		 }
-         
-      }
-   
+           function validate() {
+            var name = document.forms["myForm"]["name"].value;
+            var description = document.forms["myForm"]["description"].value;
+            var cost = document.forms["myForm"]["cost"].value;
+            var stock = document.forms["myForm"]["stock"].value;
+            var manSelect = document.forms["myForm"]["manSelect"].value;
+            var street = document.forms["myForm"]["manufacturer.street"].value;
+            var city = document.forms["myForm"]["manufacturer.city"].value;
+            var stateSelect = document.forms["myForm"]["stateSelect"].value;
+
+            // Basic validation - You can add more specific validations as needed
+            if (name === "" || description === "" || cost === "" || stock === "" || manSelect === "" || street === "" || city === "" || stateSelect === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            
+
+            return true; // Form will submit if all validations pass
+        }
+
 </script>
 <style type="text/css">
     label {
